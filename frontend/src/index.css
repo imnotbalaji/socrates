@@ -1,0 +1,17 @@
+
+
+form > .errors {
+    color: red;
+    font-size: 0.875em;
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+body { 
+    display: flex;
+    justify-content: center;
+    background-color: #EAE7DC;
+    height: 100vh;
+}
+
