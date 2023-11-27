@@ -8,6 +8,8 @@ const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
 
 
+require('./models/User');
+
 const usersRouter = require('./routes/api/users');
 const quizzesRouter = require('./routes/api/quizzes');
 const csrfRouter = require('./routes/api/csrf');
