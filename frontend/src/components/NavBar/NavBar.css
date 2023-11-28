@@ -7,6 +7,7 @@
 }
 
 .link {
+    all: initial;
     text-decoration: none;
     color: #D8C3A5;
     padding: 20px;
@@ -27,15 +28,3 @@
     justify-content: center;
 }
 
-.logoutButton {
-    all: initial;
-    text-decoration: none;
-    color: #D8C3A5;
-    padding: 14px;
-    font-size: 20px;
-    
-}
-
-.logoutButton:hover {
-    background-color: #E85A4F
-}

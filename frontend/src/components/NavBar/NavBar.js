@@ -19,7 +19,7 @@ function NavBar () {
           <Link className="link" to={'/createQuiz'}>Create Quiz</Link>
           <Link className="link" to={'/profile'}>Profile</Link>
           <Link className="link" to={'/takeQuiz'}>Take a Quiz</Link>
-          <button className="logoutButton" onClick={logoutUser}>Logout</button>
+          <Link className="link" onClick={logoutUser}>Logout</Link>
         </div>
       );
     } else {
