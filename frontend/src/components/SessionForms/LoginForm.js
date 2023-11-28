@@ -32,22 +32,25 @@ function LoginForm () {
       <div className="errors">{errors?.email}</div>
       <label>
         <span>Email</span>
+      </label>
         <input type="text"
           value={email}
           onChange={update('email')}
           placeholder="Email"
         />
-      </label>
+      
       <div className="errors">{errors?.password}</div>
       <label>
         <span>Password</span>
+      </label>
         <input type="password"
           value={password}
           onChange={update('password')}
           placeholder="Password"
         />
-      </label>
+      
       <input
+        className="submitButton"
         type="submit"
         value="Log In"
         disabled={!email || !password}

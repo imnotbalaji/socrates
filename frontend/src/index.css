@@ -8,10 +8,18 @@ form > .errors {
     align-items: center;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EAE7DC;
+    width: 100%
+}
+
 body { 
     display: flex;
     justify-content: center;
     background-color: #EAE7DC;
-    height: 100vh;
+    
 }
 

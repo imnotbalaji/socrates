@@ -57,42 +57,47 @@ function SignupForm () {
       <div className="errors">{errors?.email}</div>
       <label>
         <span>Email</span>
+      </label>
         <input type="text"
           value={email}
           onChange={update('email')}
           placeholder="Email"
         />
-      </label>
+      
       <div className="errors">{errors?.username}</div>
       <label>
         <span>Username</span>
+      </label>
         <input type="text"
           value={username}
           onChange={update('username')}
           placeholder="Username"
         />
-      </label>
+      
       <div className="errors">{errors?.password}</div>
       <label>
         <span>Password</span>
+      </label>
         <input type="password"
           value={password}
           onChange={update('password')}
           placeholder="Password"
         />
-      </label>
+      
       <div className="errors">
         {password !== password2 && 'Confirm Password field must match'}
       </div>
       <label>
         <span>Confirm Password</span>
+      </label>
         <input type="password"
           value={password2}
           onChange={update('password2')}
           placeholder="Confirm Password"
         />
-      </label>
+      
       <input
+        className="submitButton"
         type="submit"
         value="Sign Up"
         disabled={!email || !username || !password || password !== password2}
