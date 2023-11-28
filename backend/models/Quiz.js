@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const optionSchema = new Schema({
-    optionOne: {
-        type: String,
-    },
-    optionTwo: {
-        type: String,
-    },
-     optionThree: {
-        type: String,
-    },
-    optionFour: {
-        type: String,
-    }
-});
+// const optionSchema = new Schema({
+//     optionOne: {
+//         type: String,
+//     },
+//     optionTwo: {
+//         type: String,
+//     },
+//      optionThree: {
+//         type: String,
+//     },
+//     optionFour: {
+//         type: String,
+//     }
+// });
 
 const questionSchema = new Schema({
     question: {
         type: String,
     },
     options: {
-        optionsArray: [optionSchema],
+        type: Array
     },
     answer: {
         type: String,
@@ -32,7 +32,14 @@ const questionSchema = new Schema({
 });
 
 const quizSchema = new Schema({
-    questionsArray: [questionSchema]
+    title: {
+        type: String
+    },
+    questionsArray: [questionSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Quiz', quizSchema);

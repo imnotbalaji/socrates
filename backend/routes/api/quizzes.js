@@ -7,10 +7,23 @@ const Quiz = mongoose.model('Quiz');
 router.post('/create', async (req, res, next) => {
     debugger
     const newQuiz = new Quiz({
+        title: req.body.title,
+        user: req.body.user,
         questionsArray: req.body.questionsArray
     });
 
+
+
+    // const newQuiz = new Quiz({
+
+    // })
+
     const quiz = await newQuiz.save();
+    const questions = []
+
+    quiz.questionsArray.forEach((question) => {
+        questions.push(question._id)
+    })
 
     return res.json(quiz)
     // res.json(req.body)
@@ -68,9 +81,54 @@ router.get('/:id', async (req, res, next) => {
 router.get('/', async (req, res) => {
     try {
         const quizzes = await Quiz.find()
-            .populate("questionsArray")
+            // .populate()
             // .sort({ createdAt: -1 });
-        return res.json(quizzes);
+            const quizzesList = {};
+            const questionsList = {};
+            const response = {};
+
+            quizzes.forEach((quiz) => {
+                const questionIds = []
+                quiz.questionsArray.forEach((question) => {
+                    questionIds.push(question._id)  
+                    questionsList[question._id] = {
+                        _id: question._id,
+                        question: question.question,
+                        options: question.options,
+                        answer: question.answer,
+                        response: question.response
+                    }
+                })
+
+                quizzesList[quiz._id] = {
+                    _id: quiz._id,
+                    title: quiz.title,
+                    user: quiz.user,
+                    questions: questionIds
+                }
+            });
+
+            response.quizzes = quizzesList;
+            response.questions = questionsList;
+
+            // const quizzesArray = Object.values(quizzes);
+            // const response = {};
+
+            // quizzesArray.forEach((quiz) => {
+            //     const questionIds = [];
+
+            //     quiz.questionsArray.forEach((question) => {
+            //         questionIds.push(question._id)
+            //     })
+
+            //     response[quizzes][quiz._id] = {
+            //         title: quiz.title,
+            //         user: quiz.user,
+            //         questions: questionIds
+            //     }
+            // })
+
+        return res.json(response);
     }
     catch (err) {
         return res.json([]);
