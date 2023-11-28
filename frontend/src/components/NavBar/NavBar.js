@@ -16,17 +16,17 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <Link to={'/createQuiz'}>Create Quiz</Link>
-          <Link to={'/profile'}>Profile</Link>
-          <Link to={'/takeQuiz'}>Take a Quiz</Link>
+          <Link className="link" to={'/createQuiz'}>Create Quiz</Link>
+          <Link className="link" to={'/profile'}>Profile</Link>
+          <Link className="link" to={'/takeQuiz'}>Take a Quiz</Link>
           <button onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {
       return (
         <div className="links-auth">
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
+          <Link className="link" to={'/signup'}>Signup</Link>
+          <Link className="link" to={'/login'}>Login</Link>
         </div>
       );
     }
@@ -34,8 +34,9 @@ function NavBar () {
 
   return (
     <>
-      <h1>Socrates</h1>
-      { getLinks() }
+      <div className="navbar">
+        { getLinks() }
+      </div>
     </>
   );
 }
