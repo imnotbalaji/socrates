@@ -19,13 +19,15 @@ router.post('/create', async (req, res, next) => {
 //PATCH /api/quizzes/:id
 router.patch('/:id', async (req, res, next) => {
     const newResponse = req.body;
-    const quiz = await Quiz.findByIdAndUpdate(req.params.id, newResponse, function() {
-        quiz.questionsArray.forEach((question, index) => {
-            question.response = newResponse.updates[index];
-        })
-    })
+    const quiz = await Quiz.findById(req.params.id)
 
-    return res.json(quiz)
+    quiz.questionsArray.forEach((question, index) => {
+        question.response = newResponse.updates[index];
+    })
+    
+    let update = await quiz.save();
+
+    return res.json(update)
     // return res.json(quiz.questionsArray[0])
 
     // return res.json(quiz.questionsArray)
