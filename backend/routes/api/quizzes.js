@@ -16,6 +16,37 @@ router.post('/create', async (req, res, next) => {
     // res.json(req.body)
 });
 
+//PATCH /api/quizzes/:id
+router.patch('/:id', async (req, res, next) => {
+    const newResponse = req.body;
+    const quiz = await Quiz.findByIdAndUpdate(req.params.id, newResponse, function() {
+        quiz.questionsArray.forEach((question, index) => {
+            question.response = newResponse.updates[index];
+        })
+    })
+
+    return res.json(quiz)
+    // return res.json(quiz.questionsArray[0])
+
+    // return res.json(quiz.questionsArray)
+    // try {
+    //     const quiz = await Quiz.findById(req.params.id)
+
+
+    //     const newTweet = new Tweet({
+    //         text: req.body.text,
+    //         author: req.user._id
+    //     });
+
+    //     let tweet = await newTweet.save();
+    //     tweet = await tweet.populate('author', '_id username');
+    //     return res.json(tweet);
+    // }
+    // catch (err) {
+    //     next(err);
+    // }
+});
+
 //GET /api/quizzes/:id
 router.get('/:id', async (req, res, next) => {
     try {
