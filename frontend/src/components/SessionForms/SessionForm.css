@@ -1,0 +1,27 @@
+.session-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 20vw;
+    border: 2px solid #443E49;
+    border-radius: 5px;
+    background-color: #DBC1AD;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+.submitButton {
+    margin-top: 20px;
+    background-color:#F3E8EB;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+    background-color: #433E49;
+    color: #D8C3A5;
+}
