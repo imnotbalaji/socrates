@@ -8,9 +8,10 @@ import MainPage from './components/MainPage/MainPage';
 import LoginForm from './components/SessionForms/LoginForm.js';
 import SignupForm from './components/SessionForms/SignupForm.js';
 import Quizzes from './components/Quizzes/Quizzes.js';
+import CreateQuizForm from './components/CreateQuizForm/CreateQuizForm.js';
 
 import { getCurrentUser } from './store/session';
-import CreateQuizForm from './components/CreateQuizForm/CreateQuizForm.js';
+
 
 
 function App() {
