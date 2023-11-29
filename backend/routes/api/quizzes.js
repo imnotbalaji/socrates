@@ -24,16 +24,41 @@ router.post('/create', async (req, res, next) => {
 
 //PATCH /api/quizzes/:id
 router.patch('/:id', async (req, res, next) => {
-    const newResponse = req.body;
-    const quiz = await Quiz.findById(req.params.id)
-
-    quiz.questionsArray.forEach((question, index) => {
-        question.response = newResponse.updates[index];
-    })
+    try {
+        const newResponse = req.body;
+        const quiz = await Quiz.findById(req.params.id)
     
-    let update = await quiz.save();
+        quiz.questionsArray.forEach((question, index) => {
+            question.response = newResponse.updates[index];
+        })
+        
+        let update = await quiz.save();
+    
+        return res.json(update);
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
 
-    return res.json(update);
+});
+
+router.delete('/:id', async (req, res, next) => {
+    const quizId = req.params.id
+
+    try {
+        const result = await Quiz.findOneAndDelete({_id: quizId});
+        
+        if (!result) {
+            return res.status(404).json({ message: 'Document not found' });
+        }
+
+        return res.status(200).json({ message: 'Document deleted successfully' });
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 //GET /api/quizzes/:id
