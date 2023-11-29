@@ -33,8 +33,23 @@ router.patch('/:id', async (req, res, next) => {
         })
         
         let update = await quiz.save();
+
+        const questionsList = {};
+        const response = {};
+
+        update.questionsArray.forEach((question) => {
+            questionsList[question._id] = {
+                _id: question._id,
+                question: question.question,
+                options: question.options,
+                answer: question.answer,
+                response: question.response
+            }
+        });
+
+        response.questions = questionsList;
     
-        return res.json(update);
+        return res.json(response);
     }
     catch (error) {
         console.error(error);
@@ -95,7 +110,8 @@ router.get('/:id', async (req, res, next) => {
 /* GET quizzes listing. */
 router.get('/', async (req, res) => {
     try {
-        const quizzes = await Quiz.find()
+        // const quizzes = await Quiz.find({ user: '65678a007e8976d1f9f3c22f' })
+        const quizzes = await Quiz.find();
             // .populate()
             // .sort({ createdAt: -1 });
             const quizzesList = {};
