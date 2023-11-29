@@ -6,10 +6,14 @@ const openAI = require("../../openAIUtil")
 
 // POST /api/quizzes/create
 router.post('/create', async (req, res, next) => {
-    const openAIQuiz = await openAI.main();
+    const inputs = req.body;
+    const level = inputs.difficulty;
+    const topic = inputs.topic;
+    const userId = inputs.userId;
+    const openAIQuiz = await openAI.main(topic, level);
     const rawQuiz = JSON.parse(openAIQuiz.message.content);
 
-    rawQuiz.user = "6564cad1e5fc768b023f079b";
+    rawQuiz.user = userId;
 
     const formattedQuiz = new Quiz(rawQuiz);
 
