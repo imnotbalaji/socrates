@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchQuiz, updateQuiz } from "../../store/quiz"
 import { useParams } from "react-router-dom/cjs/react-router-dom"
+import { useHistory } from "react-router-dom/cjs/react-router-dom"
 import './QuizShow.css'
 
 const QuizShow = () => {
+    const history = useHistory()
     const quiz = useSelector(state => state.quizzes)
     const { quizId } = useParams()
     const dispatch = useDispatch()
@@ -64,11 +66,12 @@ const QuizShow = () => {
         }
       };
       
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const response={updates: [question0,question1,question2,question3,question4,question5,question6,question7,question8,question9]}
         console.log(response)
-        dispatch(updateQuiz(quizId, response))
+        await dispatch(updateQuiz(quizId, response))
+        .then(history.push(`/results/${quizId}`))
     }
 
     return (
