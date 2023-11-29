@@ -69,8 +69,9 @@ const quizzesReducer = (state = {}, action) => {
         case RECEIVE_QUIZZES:
             return { ...action.quizzes };
         case RECEIVE_QUIZ:
-            nextState[action.quiz._id] = action.quiz
-            return nextState;
+            // nextState[action.quiz._id] = action.quiz
+            // return nextState;
+            return { ...action.quiz}
         default:
             return state;
     }

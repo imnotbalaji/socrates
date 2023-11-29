@@ -4,6 +4,7 @@ import { createQuiz } from '../../store/quiz';
 
 
 const CreateQuizForm = () => {
+    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const [difficulty, setDifficulty] = useState('beginner')
     const [topic, setTopic] = useState()
@@ -12,7 +13,7 @@ const CreateQuizForm = () => {
         e.preventDefault()
         const quiz = {difficulty: difficulty, topic: topic, userId: user._id }
         console.log(quiz)
-        dispatchEvent(createQuiz(quiz))
+        dispatch(createQuiz(quiz))
     }
     return (
             <div >

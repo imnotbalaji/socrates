@@ -18,7 +18,7 @@ function NavBar () {
         <div className="links-nav">
           <Link className="link" to={'/createQuiz'}>Create Quiz</Link>
           <Link className="link" to={'/profile'}>Profile</Link>
-          <Link className="link" to={'/takeQuiz'}>Take a Quiz</Link>
+          <Link className="link" to={'/quizzes'}>Take a Quiz</Link>
           <Link className="link" onClick={logoutUser}>Logout</Link>
         </div>
       );
