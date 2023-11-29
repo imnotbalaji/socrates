@@ -13,20 +13,20 @@ const QuizShow = () => {
         dispatch(fetchQuiz(quizId))
     }, [quizId, dispatch])
 
-    const questionsList = quiz && Object.values(quiz.questions)
+    const questionsList = quiz?.questions && Object.values(quiz.questions)
 
     return (
         <form>
             
-            {questionsList?.map((question)=>{
+            {questionsList?.map((question, idx1)=>{
                 return (
                     <>
-                        <li>{question.question}</li>
-                        {question.options.map(option => {
+                        <li>{question?.question}</li>
+                        {question.options && question.options.map((option, idx2) => {
                             
                             return (
                                 <div className="optionsDiv">
-                                    <input type="radio"></input>
+                                    <input type="radio" name={`${idx1}`}></input>
                                     <p>{option}</p>
                                 </div>
                             )
