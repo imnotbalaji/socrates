@@ -2,36 +2,20 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Quiz = mongoose.model('Quiz');
-const openAI = require("../../openaitest")
+const openAI = require("../../openAIUtil")
 
 // POST /api/quizzes/create
 router.post('/create', async (req, res, next) => {
-    debugger
-    // const newQuiz = new Quiz({
-    //     title: req.body.title,
-    //     user: req.body.user,
-    //     questionsArray: req.body.questionsArray
-    // });
-
     const openAIQuiz = await openAI.main();
     const rawQuiz = JSON.parse(openAIQuiz.message.content);
 
-    rawQuiz.user = "6564cad1e5fc768b023f079b"
+    rawQuiz.user = "6564cad1e5fc768b023f079b";
 
-    // const newQuiz = new Quiz({
-
-    const formattedQuiz = new Quiz(rawQuiz)
-    // })
+    const formattedQuiz = new Quiz(rawQuiz);
 
     const quiz = await formattedQuiz.save();
-    // const questions = []
-
-    // quiz.questionsArray.forEach((question) => {
-    //     questions.push(question._id)
-    // })
 
     return res.json(quiz)
-    // res.json(req.body)
 });
 
 //PATCH /api/quizzes/:id
@@ -45,26 +29,7 @@ router.patch('/:id', async (req, res, next) => {
     
     let update = await quiz.save();
 
-    return res.json(update)
-    // return res.json(quiz.questionsArray[0])
-
-    // return res.json(quiz.questionsArray)
-    // try {
-    //     const quiz = await Quiz.findById(req.params.id)
-
-
-    //     const newTweet = new Tweet({
-    //         text: req.body.text,
-    //         author: req.user._id
-    //     });
-
-    //     let tweet = await newTweet.save();
-    //     tweet = await tweet.populate('author', '_id username');
-    //     return res.json(tweet);
-    // }
-    // catch (err) {
-    //     next(err);
-    // }
+    return res.json(update);
 });
 
 //GET /api/quizzes/:id
@@ -131,24 +96,6 @@ router.get('/', async (req, res) => {
 
             response.quizzes = quizzesList;
             response.questions = questionsList;
-
-            // const quizzesArray = Object.values(quizzes);
-            // const response = {};
-
-            // quizzesArray.forEach((quiz) => {
-            //     const questionIds = [];
-
-            //     quiz.questionsArray.forEach((question) => {
-            //         questionIds.push(question._id)
-            //     })
-
-            //     response[quizzes][quiz._id] = {
-            //         title: quiz.title,
-            //         user: quiz.user,
-            //         questions: questionIds
-            //     }
-            // })
-
         return res.json(response);
     }
     catch (err) {
