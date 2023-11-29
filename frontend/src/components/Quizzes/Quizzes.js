@@ -19,7 +19,7 @@ const Quizzes = () => {
     
     return (
         <>
-            {quizList.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
+            {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
         </>
     )
 }
