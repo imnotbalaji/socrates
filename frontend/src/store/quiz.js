@@ -63,6 +63,19 @@ export const createQuiz = quiz => async dispatch => {
     }
 }
 
+export const updateQuiz = quiz => async dispatch => {
+    const res = await jwtFetch(`/api/quizzes/:${quiz.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(quiz)
+      });
+
+      if (res.ok) {
+        const quiz = await res.json();
+        dispatch(receiveQuiz(quiz));
+        return res
+    }
+}
+
 const quizzesReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     switch (action.type) {
