@@ -6,7 +6,7 @@ const QuizItem = ({quiz}) => {
     return (
         <>
             <div className="quiz.title">
-                <Link to={`/${quiz._id}`}>{quiz.title} </Link>
+                <Link to={`/quizzes/${quiz._id}`}>{quiz.title} </Link>
             </div>  
         </>
     )

@@ -63,14 +63,28 @@ export const createQuiz = quiz => async dispatch => {
     }
 }
 
+export const updateQuiz = quiz => async dispatch => {
+    const res = await jwtFetch(`/api/quizzes/:${quiz.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(quiz)
+      });
+
+      if (res.ok) {
+        const quiz = await res.json();
+        dispatch(receiveQuiz(quiz));
+        return res
+    }
+}
+
 const quizzesReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_QUIZZES:
             return { ...action.quizzes };
         case RECEIVE_QUIZ:
-            nextState[action.quiz._id] = action.quiz
-            return nextState;
+            // nextState[action.quiz._id] = action.quiz
+            // return nextState;
+            return { ...action.quiz}
         default:
             return state;
     }
