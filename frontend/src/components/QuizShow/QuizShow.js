@@ -66,7 +66,7 @@ const QuizShow = () => {
       
     const handleSubmit = (e) => {
         e.preventDefault()
-        const response=[question0,question1,question2,question3,question4,question5,question6,question7,question8,question9]
+        const response={updates: [question0,question1,question2,question3,question4,question5,question6,question7,question8,question9]}
         console.log(response)
         dispatch(updateQuiz(quizId, response))
     }
