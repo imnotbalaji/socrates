@@ -63,10 +63,10 @@ export const createQuiz = quiz => async dispatch => {
     }
 }
 
-export const updateQuiz = quiz => async dispatch => {
-    const res = await jwtFetch(`/api/quizzes/:${quiz.id}`, {
+export const updateQuiz = (quizId, response) => async dispatch => {
+    const res = await jwtFetch(`/api/quizzes/:${quizId}`, {
         method: "PATCH",
-        body: JSON.stringify(quiz)
+        body: JSON.stringify(response)
       });
 
       if (res.ok) {
