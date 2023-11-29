@@ -2,28 +2,33 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Quiz = mongoose.model('Quiz');
+const openAI = require("../../openaitest")
 
 // POST /api/quizzes/create
 router.post('/create', async (req, res, next) => {
     debugger
-    const newQuiz = new Quiz({
-        title: req.body.title,
-        user: req.body.user,
-        questionsArray: req.body.questionsArray
-    });
+    // const newQuiz = new Quiz({
+    //     title: req.body.title,
+    //     user: req.body.user,
+    //     questionsArray: req.body.questionsArray
+    // });
 
+    const openAIQuiz = await openAI.main();
+    const rawQuiz = JSON.parse(openAIQuiz.message.content);
 
+    rawQuiz.user = "6564cad1e5fc768b023f079b"
 
     // const newQuiz = new Quiz({
 
+    const formattedQuiz = new Quiz(rawQuiz)
     // })
 
-    const quiz = await newQuiz.save();
-    const questions = []
+    const quiz = await formattedQuiz.save();
+    // const questions = []
 
-    quiz.questionsArray.forEach((question) => {
-        questions.push(question._id)
-    })
+    // quiz.questionsArray.forEach((question) => {
+    //     questions.push(question._id)
+    // })
 
     return res.json(quiz)
     // res.json(req.body)
@@ -67,7 +72,23 @@ router.get('/:id', async (req, res, next) => {
     try {
         const quiz = await Quiz.findById(req.params.id)
             .populate("questionsArray");
-        return res.json(quiz);
+
+        const questionsList = {};
+        const response = {};
+
+        quiz.questionsArray.forEach((question) => {
+            questionsList[question._id] = {
+                _id: question._id,
+                question: question.question,
+                options: question.options,
+                answer: question.answer,
+                response: question.response
+            }
+        });
+
+        response.questions = questionsList;
+
+        return res.json(response);
     }
     catch (err) {
         const error = new Error('Quiz not found');
