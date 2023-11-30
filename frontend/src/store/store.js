@@ -4,12 +4,14 @@ import session from './session';
 import errors from './errors';
 import quizzesReducer from './quiz';
 import questionsReducer from './questions';
+import loadingReducer from './loading';
 
 const rootReducer = combineReducers({
   session,
   errors,
   quizzes: quizzesReducer,
-  questions: questionsReducer
+  questions: questionsReducer,
+  loading: loadingReducer
 });
 
 let enhancer;
