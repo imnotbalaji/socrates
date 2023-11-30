@@ -85,11 +85,10 @@ const quizzesReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_QUIZZES:
-            return { ...action.quizzes };
+            return { ...nextState, ...action.quizzes.quizzes };
         case RECEIVE_QUIZ:
-            // nextState[action.quiz._id] = action.quiz
-            // return nextState;
-            return { ...nextState, ...action.quiz}
+
+            return { ...nextState, ...action.quiz.quizzes }
         default:
             return state;
     }
