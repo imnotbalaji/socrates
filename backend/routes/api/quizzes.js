@@ -170,7 +170,7 @@ router.get('/', restoreUser, async (req, res) => {
             });
 
             response.quizzes = quizzesList;
-            response.questions = questionsList;
+            // response.questions = questionsList;
         return res.json(response);
     }
     catch (err) {
