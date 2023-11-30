@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Quiz = mongoose.model('Quiz');
 const passport = require('passport');
 const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
@@ -82,9 +83,48 @@ router.post('/register', validateRegisterInput,  async (req, res, next) => {
 });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:id', async (req, res, next) => {
+  const userId = req.params.id
+
+  const quizzes = await Quiz.find({ user: userId });
+  
+  let availBeginnerQuestions;
+  let availInterQuestions;
+  let availAdvancedQuestions;
+  let unansweredBeginnerQuestions;
+  let unansweredInterQuestions;
+  let unansweredAdvancedQuestions;
+  let correctBeginnerQuestions;
+  let correctInterQuestions;
+  let correctAdvancedQuestions;
+  let incorrectBeginnerQuestions;
+  let incorrectInterQuestions;
+  let incorrectAdvancedQuestions;
+
+  quizzes.forEach((quiz) => {
+    let level = quiz.difficulty;
+
+    switch (level) {
+      case "beginner":
+
+        break;
+      case "intermediate":
+
+        break;
+      case "advanced":
+
+        break;
+      default:
+
+    }
+
+    quiz.questionsArray.forEach((question) => {
+
+    })
+  })
+  
   res.json({
-    message: "GET /api/users"
+    quizzes
   });
 });
 

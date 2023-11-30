@@ -27,6 +27,9 @@ const quizSchema = new Schema({
     },
     attempts: {
         type: Number
+    },
+    difficulty: {
+        type: String
     }
 });
 

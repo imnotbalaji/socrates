@@ -16,12 +16,39 @@ router.post('/create', async (req, res, next) => {
 
     rawQuiz.user = userId;
     rawQuiz.attempts = 0;
+    rawQuiz.difficulty = level;
 
     const formattedQuiz = new Quiz(rawQuiz);
 
     const quiz = await formattedQuiz.save();
 
-    return res.json(quiz)
+    const quizzesList = {};
+    const questionsList = {};
+    const response = {};
+    const questionIds = [];
+
+    quiz.questionsArray.forEach((question) => {
+        questionIds.push(question._id)
+        questionsList[question._id] = {
+            _id: question._id,
+            question: question.question,
+            options: question.options,
+            answer: question.answer,
+            response: question.response
+        }
+    })
+
+    quizzesList[quiz._id] = {
+        _id: quiz._id,
+        title: quiz.title,
+        user: quiz.user,
+        questions: questionIds
+    }
+
+    response.quizzes = quizzesList;
+    response.questions = questionsList;
+
+    return res.json(response)
 });
 
 //PATCH /api/quizzes/:id
