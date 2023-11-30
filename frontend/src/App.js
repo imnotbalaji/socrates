@@ -10,8 +10,10 @@ import SignupForm from './components/SessionForms/SignupForm.js';
 import Quizzes from './components/Quizzes/Quizzes.js';
 import CreateQuizForm from './components/CreateQuizForm/CreateQuizForm.js';
 import QuizShow from './components/QuizShow/QuizShow.js';
+import Results from './components/Results/Results.js';
 
 import { getCurrentUser } from './store/session';
+
 
 
 
@@ -35,6 +37,7 @@ function App() {
         <ProtectedRoute exact path="/quizzes/:quizId" component={QuizShow} />
         <ProtectedRoute exact path="/quizzes" component={Quizzes} />
         <ProtectedRoute exact path="/createQuiz" component={CreateQuizForm} />
+        <ProtectedRoute exact path="/results/:quizId" component={Results} />
         
       </Switch>
     </>
