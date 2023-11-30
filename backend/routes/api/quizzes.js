@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Quiz = mongoose.model('Quiz');
-const openAI = require("../../openAIUtil")
+const openAI = require("../../openAIUtil");
+const { restoreUser } = require('../../config/passport');
 
 // POST /api/quizzes/create
 router.post('/create', async (req, res, next) => {
@@ -108,10 +109,11 @@ router.get('/:id', async (req, res, next) => {
 });
 
 /* GET quizzes listing. */
-router.get('/', async (req, res) => {
+router.get('/', restoreUser, async (req, res) => {
     try {
         // const quizzes = await Quiz.find({ user: '65678a007e8976d1f9f3c22f' })
-        const quizzes = await Quiz.find();
+        const quizzes = await Quiz.find({ user: req.user._id });
+        // const quizzes = await Quiz.find();
             // .populate()
             // .sort({ createdAt: -1 });
             const quizzesList = {};
