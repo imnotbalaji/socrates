@@ -6,12 +6,12 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 const Results = () => {
-    const quiz = useSelector(state => state.quizzes)
+    const quiz = useSelector(state => state.questions)
 
     const { quizId } = useParams()
     const dispatch = useDispatch()
 
-    const questionsList = quiz?.questions && Object.values(quiz.questions)
+    const questionsList = quiz && Object.values(quiz)
 
     useEffect(()=>{
         dispatch(fetchQuiz(quizId))

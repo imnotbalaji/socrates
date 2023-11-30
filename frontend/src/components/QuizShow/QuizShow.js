@@ -7,7 +7,7 @@ import './QuizShow.css'
 
 const QuizShow = () => {
     const history = useHistory()
-    const quiz = useSelector(state => state.quizzes)
+    const quiz = useSelector(state => state.questions)
     const { quizId } = useParams()
     const dispatch = useDispatch()
 
@@ -26,7 +26,7 @@ const QuizShow = () => {
         dispatch(fetchQuiz(quizId))
     }, [quizId, dispatch])
 
-    const questionsList = quiz?.questions && Object.values(quiz.questions)
+    const questionsList = quiz && Object.values(quiz)
 
     const handleAnswerChange = (questionIndex, value) => {
         switch (questionIndex) {
