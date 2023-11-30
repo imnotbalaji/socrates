@@ -24,6 +24,9 @@ const quizSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    attempts: {
+        type: Number
     }
 });
 
