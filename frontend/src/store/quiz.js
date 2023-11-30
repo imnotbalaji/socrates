@@ -1,7 +1,10 @@
 import jwtFetch from './jwt';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
-const RECEIVE_QUIZZES = 'quizzes/RECEIVE_QUIZZES'
-const RECEIVE_QUIZ = 'quizzes/RECEIVE_QUIZ'
+const history={}
+const RECEIVE_QUIZZES = 'quizzes/RECEIVE_QUIZZES';
+const RECEIVE_QUIZ = 'quizzes/RECEIVE_QUIZ';
+const LOADING_QUIZ = 'quizzes/LOADING_QUIZ';
 
 export const receiveQuizzes = quizzes => {
     return {
@@ -15,7 +18,9 @@ export const receiveQuiz = quiz => {
         type: RECEIVE_QUIZ,
         quiz
     }
+    
 }
+
 
 // useSelectors
 export const getQuizzes = state => {
@@ -84,7 +89,7 @@ const quizzesReducer = (state = {}, action) => {
         case RECEIVE_QUIZ:
             // nextState[action.quiz._id] = action.quiz
             // return nextState;
-            return { ...action.quiz}
+            return { ...nextState, ...action.quiz}
         default:
             return state;
     }
