@@ -7,7 +7,7 @@ import QuizItem from "../QuizItem/QuizItem"
 
 const Quizzes = () => {
     
-    const quizzes = useSelector(getQuizzes)
+    const quizzes = useSelector(state => state.quizzes)
     const questions = useSelector(state => state.quizzes.questions)
     const dispatch = useDispatch()
 
