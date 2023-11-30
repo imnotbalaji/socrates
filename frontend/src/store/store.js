@@ -5,13 +5,15 @@ import errors from './errors';
 import quizzesReducer from './quiz';
 import questionsReducer from './questions';
 import analyticsReducer from './analytics';
+import loadingReducer from './loading';
 
 const rootReducer = combineReducers({
   session,
   errors,
   quizzes: quizzesReducer,
   questions: questionsReducer,
-  analytics: analyticsReducer
+  analytics: analyticsReducer,
+  loading: loadingReducer
 });
 
 let enhancer;
