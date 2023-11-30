@@ -4,6 +4,7 @@ import session from './session';
 import errors from './errors';
 import quizzesReducer from './quiz';
 import questionsReducer from './questions';
+import analyticsReducer from './analytics';
 import loadingReducer from './loading';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   errors,
   quizzes: quizzesReducer,
   questions: questionsReducer,
+  analytics: analyticsReducer,
   loading: loadingReducer
 });
 
