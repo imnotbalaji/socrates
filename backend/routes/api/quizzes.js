@@ -15,6 +15,7 @@ router.post('/create', async (req, res, next) => {
     const rawQuiz = JSON.parse(openAIQuiz.message.content);
 
     rawQuiz.user = userId;
+    rawQuiz.attempts = 0;
 
     const formattedQuiz = new Quiz(rawQuiz);
 
