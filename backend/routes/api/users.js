@@ -88,43 +88,90 @@ router.get('/:id', async (req, res, next) => {
 
   const quizzes = await Quiz.find({ user: userId });
   
-  let availBeginnerQuestions;
-  let availInterQuestions;
-  let availAdvancedQuestions;
-  let unansweredBeginnerQuestions;
-  let unansweredInterQuestions;
-  let unansweredAdvancedQuestions;
-  let correctBeginnerQuestions;
-  let correctInterQuestions;
-  let correctAdvancedQuestions;
-  let incorrectBeginnerQuestions;
-  let incorrectInterQuestions;
-  let incorrectAdvancedQuestions;
+  let availBeginnerQuestions = 0;
+  let availInterQuestions = 0;
+  let availAdvancedQuestions = 0;
+  let unansweredBeginnerQuestions = 0;
+  let unansweredInterQuestions = 0;
+  let unansweredAdvancedQuestions = 0;
+  let correctBeginnerQuestions = 0;
+  let correctInterQuestions = 0;
+  let correctAdvancedQuestions = 0;
+  let incorrectBeginnerQuestions = 0;
+  let incorrectInterQuestions = 0;
+  let incorrectAdvancedQuestions = 0;
 
   quizzes.forEach((quiz) => {
     let level = quiz.difficulty;
 
     switch (level) {
       case "beginner":
-
+        availBeginnerQuestions += 10;
         break;
       case "intermediate":
-
+        availInterQuestions += 10;
         break;
       case "advanced":
-
+        availAdvancedQuestions += 10;
         break;
       default:
-
+        break;
     }
 
     quiz.questionsArray.forEach((question) => {
-
+      switch (level) {
+        case "beginner":
+          if (question.response === "") {
+            unansweredBeginnerQuestions += 1;
+          }
+          if (question.response === question.answer) {
+            correctBeginnerQuestions += 1;
+          }
+          if (question.response !== "" && question.response !== question.answer) {
+            incorrectBeginnerQuestions += 1;
+          }
+          break;
+        case "intermediate":
+          if (question.response === "") {
+            unansweredInterQuestions += 1;
+          }
+          if (question.response === question.answer) {
+            correctInterQuestions += 1;
+          }
+          if (question.response !== "" && question.response !== question.answer) {
+            incorrectInterQuestions += 1;
+          }
+          break;
+        case "advanced":
+          if (question.response === "") {
+            unansweredAdvancedQuestions += 1;
+          }
+          if (question.response === question.answer) {
+            correctAdvancedQuestions += 1;
+          }
+          if (question.response !== "" && question.response !== question.answer) {
+            incorrectAdvancedQuestions += 1;
+          }
+          break;
+        default:
+          break;
+      }
     })
   })
   
   res.json({
-    quizzes
+    availBeginnerQuestions,
+    availInterQuestions,
+    availAdvancedQuestions,
+    unansweredBeginnerQuestions,
+    unansweredInterQuestions,
+    unansweredAdvancedQuestions,
+    correctBeginnerQuestions,
+    correctInterQuestions,
+    correctAdvancedQuestions,
+    incorrectBeginnerQuestions,
+    incorrectInterQuestions,
+    incorrectAdvancedQuestions,
   });
 });
 
