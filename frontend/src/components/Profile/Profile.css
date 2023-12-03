@@ -1,0 +1,42 @@
+* {
+    /* border: 1px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.analyticsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.analyticsContainerTop {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.analyticsContainerBottom {
+    display: flex;
+    justify-content: center;
+}
+
+.difficulty {
+    width: 50%;
+    margin-right: 2%;
+    margin-bottom: 10%;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+}
+
+.dataContainer {
+    display: flex;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.data {
+    width: 250px;
+}
