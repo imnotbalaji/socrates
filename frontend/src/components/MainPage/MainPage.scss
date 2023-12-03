@@ -1,0 +1,37 @@
+.main-container {
+    display: flex;
+    position: static;
+
+    .session-form {
+        margin-top: 125px;
+    }
+}
+.main {
+
+    // Position 
+    position: relative;
+    top: 0%;
+    left: (-10%);
+    // Display properties 
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    // align-items: center;
+    // background-color: #D8C3A5;
+    // Height - width
+    // border: 1px solid red;how
+    background-image: url("../../../Assets/vintage_style.webp") ;
+    opacity: 0.5;
+    clip-path: circle(92.8% at 0 95%);
+    width: 55vw;
+    height: 89vh;
+    * {
+        opacity: 1;
+        // border: 1px solid red;
+        margin-left: 50px;
+    }
+
+    // margin-top: 20px;
+   
+}

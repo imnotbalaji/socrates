@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { fetchQuiz, updateQuiz } from "../../store/quiz"
 import { useParams } from "react-router-dom/cjs/react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom"
-import './QuizShow.css'
+import './QuizShow.scss'
 
 const QuizShow = () => {
     const history = useHistory()
@@ -28,42 +28,74 @@ const QuizShow = () => {
 
     const questionsList = quiz && Object.values(quiz)
 
+    const questionbyIndex = (index) => {
+      switch (index) {
+        case 0: 
+         return question0;
+        case 1: 
+         return question1;
+        case 2: 
+         return question2;
+        case 3: 
+         return question3;
+         case 4: 
+         return question4;
+        case 5: 
+         return question5;
+        case 6: 
+         return question6;
+        case 7: 
+         return question7;
+        case 8: 
+         return question8;
+        case 9: 
+         return question9
+         default: 
+         return null;
+      }
+
+    }
+
+ 
+
     const handleAnswerChange = (questionIndex, value) => {
+      console.log("Test",questionIndex,value);
         switch (questionIndex) {
           case 0:
-            setQuestion0(value);
-            console.log(setQuestion0)
+            setQuestion0(prev_value => (prev_value === value)? "" : value);
+            // console.log(question0)
             break;
           case 1:
-            setQuestion1(value);
+            setQuestion1(prev_value => (prev_value === value)? "" : value );
             break;
           case 2:
-            setQuestion2(value);
+            setQuestion2(prev_value => (prev_value === value)? "" : value);
             break;
           case 3:
-            setQuestion3(value);
+            setQuestion3(prev_value => (prev_value === value)? "" : value );
             break;
           case 4:
-            setQuestion4(value);
+            setQuestion4(prev_value => (prev_value === value)? "" : value );
             break;
           case 5:
-            setQuestion5(value);
+            setQuestion5(prev_value => (prev_value === value)? "" : value );
             break;
           case 6:
-            setQuestion6(value);
+            setQuestion6(prev_value => (prev_value === value)? "" : value );
             break;
           case 7:
-            setQuestion7(value);
+            setQuestion7(prev_value => (prev_value === value)? "" : value );
             break;
           case 8:
-            setQuestion8(value);
+            setQuestion8(prev_value => (prev_value === value)? "" : value);
             break;
           case 9:
-            setQuestion9(value);
+            setQuestion9(prev_value => (prev_value === value)? "" : value);
             break;
           default:
             break;
         }
+        
       };
       
     const handleSubmit = async (e) => {
@@ -75,26 +107,49 @@ const QuizShow = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className = "quiz-form" onSubmit={handleSubmit}>
+          <div className="quiz-cover-image"> 
+          <img src= "http://www.phil.bilkent.edu.tr/wp-content/uploads/2020/09/screenshot-3.png" />
+          </div>
             
             {questionsList?.map((question, idx1)=>{
                 return (
-                    <>
-                        <li>{question?.question}</li>
+                    <div className={
+                      "question "
+                      + (questionbyIndex(idx1) ? "answered" : "unanswered")
+                  }
+                    >
+                        {question?.question}
+                        <div className ="options-area">
                         {question.options && question.options.map((option, idx2) => {
                             
                             return (
-                                <div className="optionsDiv">
-                                    <input 
+                                <div className = {
+                                  "option " 
+                                  + ((questionbyIndex(idx1) === option) 
+                                   ? "selected" : "unselected")
+                                }
+                       
+                                
+                                onClick={(e)=>handleAnswerChange(idx1,e.target.innerText)} 
+
+                                
+                                >
+                                    {/* <input 
                                         type="radio" 
                                         name={`${idx1}`} 
                                         value={option}
-                                        onChange={(e)=>(handleAnswerChange(idx1, e.target.value))}></input>
+                                        onChange={(e)=>(handleAnswerChange(idx1, e.target.value))}>
+                                          
+                                        </input> */}
+                                        {/* Let's see if i look up the question and see if the value of that option that i assign a class to it */}
+                                        
                                     <p>{option}</p>
                                 </div>
                             )
                         })}
-                    </>
+                        </div>
+                    </div>
                 )
             })}
             <button type="submit">Submit</button>

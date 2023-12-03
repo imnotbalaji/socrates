@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './SessionForm.css';
+import './SessionForm.scss';
 import { signup, clearSessionErrors } from '../../store/session';
+import LoginNavBar from '../NavBar/LoginNavBar';
 
-function SignupForm () {
+function SignupPage() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -52,49 +53,52 @@ function SignupForm () {
   }
 
   return (
+    <>
+    <LoginNavBar/>
     <form className="session-form" onSubmit={handleSubmit}>
-      <h2>Sign Up Form</h2>
-      <div className="errors">{errors?.email}</div>
-      <label>
-        <span>Email</span>
-      </label>
+      
+      
+  
         <input type="text"
           value={email}
           onChange={update('email')}
           placeholder="Email"
         />
+        {errors?.email && <div className="errors">{errors?.email}</div>}
+        
       
-      <div className="errors">{errors?.username}</div>
-      <label>
-        <span>Username</span>
-      </label>
+
+      
         <input type="text"
           value={username}
           onChange={update('username')}
           placeholder="Username"
         />
+
+        {errors?.username &&  <div className="errors">{errors?.username}</div>}
+             
       
-      <div className="errors">{errors?.password}</div>
-      <label>
-        <span>Password</span>
-      </label>
+      
+      
         <input type="password"
           value={password}
           onChange={update('password')}
           placeholder="Password"
         />
+
+        {errors?.password && <div className="errors">{errors?.password}</div>}
+        
       
-      <div className="errors">
-        {password !== password2 && 'Confirm Password field must match'}
-      </div>
-      <label>
-        <span>Confirm Password</span>
-      </label>
+      
+     
         <input type="password"
           value={password2}
           onChange={update('password2')}
           placeholder="Confirm Password"
         />
+
+        {(password !== password2) &&   <div className="errors"> 'Confirm Password field must match'</div>}
+      
       
       <input
         className="submitButton"
@@ -103,7 +107,8 @@ function SignupForm () {
         disabled={!email || !username || !password || password !== password2}
       />
     </form>
+    </>
   );
 }
 
-export default SignupForm;
+export default SignupPage;

@@ -5,6 +5,9 @@ import { fetchQuizzes, getQuizzes } from "../../store/quiz"
 import { useDispatch } from "react-redux"
 import QuizItem from "../QuizItem/QuizItem"
 import { useState } from "react"
+import "./Quizzes.scss"
+import { Link } from "react-router-dom/cjs/react-router-dom"
+import NavBar from "../NavBar/NavBar"
 
 const Quizzes = () => {
     
@@ -22,10 +25,18 @@ const Quizzes = () => {
     const quizList = quizzes && Object.values(quizzes)
     
     return (
-        <div>
+        <>
+        
+        <NavBar />
+        <div className="quiz-index">
+             <div className ="createQuiz-link">
+                <Link to ="/createQuiz">Create a new Quiz</Link>
+            </div>
             {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
             { loading ? "Loading" : ""}
+           
         </div>
+        </>
     )
 }
 

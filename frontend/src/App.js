@@ -5,8 +5,8 @@ import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 import NavBar from './components/NavBar/NavBar';
 
 import MainPage from './components/MainPage/MainPage';
-import LoginForm from './components/SessionForms/LoginForm.js';
-import SignupForm from './components/SessionForms/SignupForm.js';
+import LoginPage from './components/SessionForms/LoginPage.js';
+import SignupPage from './components/SessionForms/SignupPage.js';
 import Quizzes from './components/Quizzes/Quizzes.js';
 import CreateQuizForm from './components/CreateQuizForm/CreateQuizForm.js';
 import QuizShow from './components/QuizShow/QuizShow.js';
@@ -29,11 +29,11 @@ function App() {
   
   return loaded && (
     <>
-      <NavBar />
+      
       <Switch>
         <AuthRoute exact path="/" component={MainPage} />
-        <AuthRoute exact path="/login" component={LoginForm} />
-        <AuthRoute exact path="/signup" component={SignupForm} />
+        <AuthRoute exact path="/login" component={LoginPage} />
+        <AuthRoute exact path="/signup" component={SignupPage} />
 
         <ProtectedRoute exact path="/quizzes/:quizId" component={QuizShow} />
         <ProtectedRoute exact path="/quizzes" component={Quizzes} />

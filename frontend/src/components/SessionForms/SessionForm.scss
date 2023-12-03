@@ -1,0 +1,56 @@
+.session-form {
+    // flex display 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    
+
+    // height and width 
+    height: 50vh;
+    width: 30vw;
+    min-width: 300px;
+
+    // color and borders 
+    border: 1px solid red;
+    border-radius: 5px;
+    // background-color: #DBC1AD;
+    box-shadow: 5px 5px 5px 5px grey;
+
+    // Box sizing 
+    // padding-bottom: 20px;
+    
+    margin-top: 20px;
+
+    * {
+        width: 80%;
+        padding: 5px;
+        height: 5vh;
+
+
+        border-radius: 5px;
+        
+        box-sizing: border-box;
+        // margin: 10px;
+    }
+    .submitButton {
+
+        
+        background-color:#F3E8EB;
+        
+        
+        
+
+        &:hover {
+            cursor: pointer;
+           
+        }
+        &:disabled{
+            // background-color: #433E49;
+            // color: #D8C3A5;
+
+        }
+    }
+    
+}

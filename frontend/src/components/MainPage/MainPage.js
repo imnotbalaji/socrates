@@ -1,14 +1,23 @@
-import './MainPage.css'
+import LoginNavBar from '../NavBar/LoginNavBar';
+import LoginForm from '../SessionForms/LoginForm';
+
+import './MainPage.scss'
 
 function MainPage() {
     return (
-      <div className="main">
-        <p>Socrates</p>
-        <p>The Unexamind Life is Not Worth Living</p>
-        <footer>
-          Copyright &copy; 2023 Socrates
-        </footer>
+      <>
+      <LoginNavBar/>
+      <div className = "main-container">
+       <div className="main">
+        <h1>Socrates</h1>
+        <p>The Unexamined Life is Not Worth Living</p>
       </div>
+      <LoginForm/>
+      </div>
+      
+      </>
+      
+     
     );
   }
   

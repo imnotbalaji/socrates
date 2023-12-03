@@ -1,0 +1,38 @@
+.quiz-index {
+    // border: 1px solid blue ;
+    margin-top: 20px;
+    width: 80vw;
+    height: 80vh;
+    // Display Flex: 
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+
+    // Display Grid
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%  20%;
+    grid-template-rows: 25% 25% 25% 25%  ;
+    overflow: scroll;
+    // justify-content: space-between;
+    > * { 
+        padding : 5px;
+        box-sizing: border-box;
+        // width: 20%;
+        // border: 1px solid red;
+        border-radius: 5%;
+        background-color: lightgrey;
+        box-shadow: 5px 5px 5px grey;
+        margin: 5px;
+        // height: 10vh;
+        &:hover {
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+    }
+}

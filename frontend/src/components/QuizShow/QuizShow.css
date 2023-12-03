@@ -1,3 +1,6 @@
+.quiz-form {
+    border: 1px solid red;
+}
 .optionsDiv {
     display: flex;
 }

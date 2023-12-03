@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&family=Roboto&display=swap');
+
+html {
+    font-size: 1.2em;
+}
+* {
+    font-family: 'GFS Neohellenic', sans-serif;
+    // font-size: $size + 2px;
+    // font-size: 20px;
+}
+
+form > .errors {
+    color: red;
+    font-size: 0.875em;
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: #EAE7DC;
+    width: 100%
+}
+
+body { 
+    display: flex;
+    justify-content: center;
+    // background-color: #EAE7DC;
+    
+}
+
