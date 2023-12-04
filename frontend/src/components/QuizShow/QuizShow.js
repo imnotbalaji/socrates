@@ -4,11 +4,15 @@ import { fetchQuiz, updateQuiz } from "../../store/quiz"
 import { useParams } from "react-router-dom/cjs/react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom"
 import './QuizShow.scss'
+import NavBar from "../NavBar/NavBar"
 
 const QuizShow = () => {
     const history = useHistory()
     const quiz = useSelector(state => state.questions)
+    
     const { quizId } = useParams()
+    const quizCover = useSelector(state => state.quizzes[quizId].coverURL);
+    const quizTitle = useSelector(state => state.quizzes[quizId].title);
     const dispatch = useDispatch()
 
     const [question0, setQuestion0] = useState("")
@@ -107,9 +111,13 @@ const QuizShow = () => {
     }
 
     return (
+      <>
+      <NavBar />
+      
         <form className = "quiz-form" onSubmit={handleSubmit}>
           <div className="quiz-cover-image"> 
-          <img src= "http://www.phil.bilkent.edu.tr/wp-content/uploads/2020/09/screenshot-3.png" />
+          <img src= {quizCover} />
+          <h1>{quizTitle.slice(0,-5)}</h1>
           </div>
             
             {questionsList?.map((question, idx1)=>{
@@ -119,7 +127,7 @@ const QuizShow = () => {
                       + (questionbyIndex(idx1) ? "answered" : "unanswered")
                   }
                     >
-                        {question?.question}
+                        <strong>{question?.question}</strong>
                         <div className ="options-area">
                         {question.options && question.options.map((option, idx2) => {
                             
@@ -154,6 +162,7 @@ const QuizShow = () => {
             })}
             <button type="submit">Submit</button>
         </form>
+        </>
     )
 }
 

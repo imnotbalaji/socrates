@@ -2,10 +2,11 @@
     height: 85vh;
     width: 60%;
     overflow: scroll;
-    border: 1px solid red;
+    // border: 1px solid red;
     display: flex;
+    background-color: #F5F5DC;
     flex-direction: column;
-    background-color: white;
+    // background-color: white;
     font-size: medium;
     align-items: center;
     img {
@@ -18,17 +19,17 @@
 }
 
 .results-statistics { 
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
 .question {
-    border: 1px solid red;
-    background-color: lightblue;
+    // border: 1px solid red;
+    // background-color: lightblue;
     box-sizing: border-box;
     // box-shadow: 2px 2px 2px 2px cyan;
     border-radius: 5px;
     width: 90%;
-    height: 40%;
+    // height: 40%;
     margin: 5px;
     padding: 10px;
     

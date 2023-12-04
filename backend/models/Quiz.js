@@ -30,6 +30,11 @@ const quizSchema = new Schema({
     },
     difficulty: {
         type: String
+    },
+    // just adding this for images
+    coverUrl: {
+        type: String 
+
     }
 });
 

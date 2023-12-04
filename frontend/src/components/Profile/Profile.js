@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import { fetchAnalytics } from "../../store/analytics";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import "./Profile.css";
+import NavBar from "../NavBar/NavBar";
 
 
 const Profile = () => {
@@ -64,6 +65,8 @@ const Profile = () => {
     ]
 
     return (
+        <>
+        <NavBar/>
         <div className="analyticsContainer">
             <div className="analyticsContainerTop">
                 <div className="difficulty">
@@ -193,7 +196,8 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>  
+        </>  
     )
 };
 

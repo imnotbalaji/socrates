@@ -16,10 +16,13 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <Link className="link" to={'/createQuiz'}>Create Quiz</Link>
-          <Link className="link" to={'/profile'}>Profile</Link>
+          {/* <Link className="link" to={'/createQuiz'}>Create Quiz</Link> */}
+          
           <Link className="link" to={'/quizzes'}>Take a Quiz</Link>
+          <div className = "profile-links">
+          <Link className="link" to={'/profile'}>Profile</Link>
           <Link className="link" onClick={logoutUser}>Logout</Link>
+          </div>
         </div>
       );
     } else {

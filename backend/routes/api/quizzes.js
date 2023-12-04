@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Quiz = mongoose.model('Quiz');
-const openAI = require("../../openAIUtil");
+const openAI = require("../../openAIUtil.js");
 const { restoreUser } = require('../../config/passport');
 
 // POST /api/quizzes/create
@@ -11,12 +11,14 @@ router.post('/create', async (req, res, next) => {
     const level = inputs.difficulty;
     const topic = inputs.topic;
     const userId = inputs.userId;
-    const openAIQuiz = await openAI.main(topic, level);
+    const openAIQuiz = await openAI.getquiz(topic, level);
     const rawQuiz = JSON.parse(openAIQuiz.message.content);
 
     rawQuiz.user = userId;
     rawQuiz.attempts = 0;
     rawQuiz.difficulty = level;
+    const coverURL = await openAI.getCoverImage(topic);
+    rawQuiz.coverUrl = coverURL
 
     const formattedQuiz = new Quiz(rawQuiz);
 
@@ -42,7 +44,9 @@ router.post('/create', async (req, res, next) => {
         _id: quiz._id,
         title: quiz.title,
         user: quiz.user,
-        questions: questionIds
+        questions: questionIds,
+        coverURL: quiz.coverUrl
+
     }
 
     response.quizzes = quizzesList;
@@ -157,7 +161,8 @@ router.get('/', restoreUser, async (req, res) => {
                         question: question.question,
                         options: question.options,
                         answer: question.answer,
-                        response: question.response
+                        response: question.response,
+                       
                     }
                 })
 
@@ -165,7 +170,8 @@ router.get('/', restoreUser, async (req, res) => {
                     _id: quiz._id,
                     title: quiz.title,
                     user: quiz.user,
-                    questions: questionIds
+                    questions: questionIds,
+                    coverURL: quiz.coverUrl
                 }
             });
 

@@ -1,0 +1,17 @@
+.create-quiz-form {
+    // border: 1px solid ge
+    // border: 1px solid red;
+    border-radius: 5px;
+    // background-color: #DBC1AD;
+    box-shadow: 5px 5px 5px 5px grey;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    margin: 50px;
+
+    * {
+        padding: 10px;
+    }
+    
+}
