@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createQuiz } from '../../store/quiz';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { toggle } from '../../store/loading';
+import NavBar from '../NavBar/NavBar';
+import "./CreateQuiz.scss"
 
 
 const CreateQuizForm = () => {
@@ -25,22 +27,25 @@ const CreateQuizForm = () => {
     }
 
     return (
+            <>
+            <NavBar/>
             
-            <div >
-                <form onSubmit={handleSubmit}>
-                <label for="dropdown">Select a Difficulty:</label>
+                <form className = "create-quiz-form" onSubmit={handleSubmit}>
+                {/* <label>topic</label> */}
+                        <input type="text" placeholder="What's on your mind" value={topic} onChange={(e)=>setTopic(e.target.value)}></input>
+                
                     <select id="dropdown" onChange={(e)=>setDifficulty(e.target.value)}name="difficulty">
-                        <option value="beginner" >beginner</option>
-                        <option value="intermediate" >intermediate</option>
-                        <option value="advanced" >advanced</option>
+                        <option value="beginner" >Difficult Level: Beginner</option>
+                        <option value="intermediate" >Difficult Level: intermediate</option>
+                        <option value="advanced" >Difficult Level: Advanced</option>
                     </select>
                 
 
-                    <label>topic</label>
-                        <input type="text" value={topic} onChange={(e)=>setTopic(e.target.value)}></input>
-                    <button type="submit">Submit</button>
+                   
+                    <button type="submit" disabled = {!topic}>Submit</button>
                 </form>
-            </div>
+            
+            </>
         )
     
 }

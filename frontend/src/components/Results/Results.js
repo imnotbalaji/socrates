@@ -5,6 +5,7 @@ import { fetchQuiz } from "../../store/quiz"
 import { useEffect } from "react"
 import { useState } from "react"
 import "./Results.scss"
+import NavBar from "../NavBar/NavBar"
 
 const Results = () => {
     const quiz = useSelector(state => state.questions)
@@ -33,6 +34,8 @@ const Results = () => {
     
 
     return (
+        <>
+        <NavBar/>
         <div className="results">
             <h2>Your Results</h2>
             <div className="results-statistics">
@@ -60,13 +63,13 @@ const Results = () => {
                             )
                         })}
                         </div>
-                        <p>Your Answer: {question?.response}</p>
-                        <p>Correct Answer: {question?.answer} </p>
+                        
                     </div>
                 )
             })}
             
         </div>
+        </>
     )
 }
 
