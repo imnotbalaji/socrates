@@ -12,9 +12,13 @@ const OpenAI = require("openai");
 const AWS = require('aws-sdk');
 const dotenv = require("dotenv");
 dotenv.config();
+
+const awsKey = process.env.AWS_ACCESS_KEY_ID;
+const awsSecretKey = process.env.AWS_SECRET_ACCESS_KEY;
+
 const s3 = new AWS.S3({
-    accessKeyId: 'AKIASAMMWOXAFV6A5NBO',
-    secretAccessKey: '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'
+    accessKeyId: awsKey,
+    secretAccessKey: awsSecretKey
  });
  
  const BucketName = "socrates-quiz-covers";
