@@ -45,25 +45,6 @@ app.use('/api/users', usersRouter);
 app.use('/api/quizzes', quizzesRouter); 
 app.use('/api/csrf', csrfRouter);
 
-app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.statusCode = 404;
-    next(err);
-});
-
-const serverErrorLogger = debug('backend:error');
-
-app.use((err, req, res, next) => {
-    serverErrorLogger(err);
-    const statusCode = err.statusCode || 500;
-    res.status(statusCode);
-    res.json({
-        message: err.message,
-        statusCode,
-        errors: err.errors
-    })
-});
-
 if (isProduction) {
   const path = require('path');
   // Serve the frontend's index.html file at the root route
@@ -85,6 +66,39 @@ if (isProduction) {
     );
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.statusCode = 404;
+    next(err);
+});
+
+const serverErrorLogger = debug('backend:error');
+
+app.use((err, req, res, next) => {
+    serverErrorLogger(err);
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode);
+    res.json({
+        message: err.message,
+        statusCode,
+        errors: err.errors
+    })
+});
 
 
 
