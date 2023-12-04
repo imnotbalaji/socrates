@@ -21,9 +21,13 @@ const LoginForm = () => {
     }
   
     const handleSubmit = (e) => {
-      e.preventDefault();
+    e.preventDefault();
       dispatch(login({ email, password })); 
     }
+    const demoLogin = (e) => {
+      e.preventDefault();
+        dispatch(login({ email:"balaji@user.io", password: "password" })); 
+      }
 
     return (
         <form className="session-form" onSubmit={handleSubmit}>
@@ -43,9 +47,19 @@ const LoginForm = () => {
         <input
           className="submitButton"
           type="submit"
+          id = "login-button"
           value="Log In"
           disabled={!email || !password}
         />
+         <button
+          className="demo-login"
+          id = "demo-login"
+          type="button"
+          
+          onClick = {demoLogin}
+        >Demo Login</button>
+      
+      
       </form>
     )
 

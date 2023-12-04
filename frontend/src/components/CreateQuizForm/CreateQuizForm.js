@@ -31,6 +31,7 @@ const CreateQuizForm = () => {
             <NavBar/>
             
                 <form className = "create-quiz-form" onSubmit={handleSubmit}>
+                    <h1> Test yourself on any topic at any level!</h1>
                 {/* <label>topic</label> */}
                         <input type="text" placeholder="What's on your mind" value={topic} onChange={(e)=>setTopic(e.target.value)}></input>
                 

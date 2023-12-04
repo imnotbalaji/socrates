@@ -39,7 +39,9 @@
     .submitButton {
 
         
-        background-color:#F3E8EB;
+        background-color: #003366;
+    
+    Color: white;
         
         
         
@@ -49,10 +51,20 @@
            
         }
         &:disabled{
-            // background-color: #433E49;
-            // color: #D8C3A5;
+            background-color:  lightgrey;
+            color: white;
 
         }
     }
     
+}
+
+.demo-login {
+    background-color: #003366;
+    
+    Color: white;
+    cursor: pointer;
+    // &:hover {
+
+    // }
 }
