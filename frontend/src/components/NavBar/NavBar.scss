@@ -1,18 +1,33 @@
-
+.logo {
+    height: 150%;
+    // border: 1px solid red;
+    img {
+        padding: 0px;
+        height: 100%;
+        width: 100%;
+    }
+}
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #433E49;
+    
+    
+    color: black;
+    background-color: white;
+    // background-color: #433E49;
     width: 100%;
     height: 10vh;
     margin: 0px;
     border-bottom: 2px solid grey;
     // box-shadow:  0px 5px lightgray;
+    .links-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
 }
 .navbar.auth {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    
     align-items: center;
     color: black;
     background-color: white;
@@ -22,9 +37,10 @@
 .link {
     all: initial;
     text-decoration: none;
-    color: #D8C3A5;
+    // color: #D8C3A5;
     padding: 20px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .link:hover {
@@ -38,7 +54,7 @@
 
 .links-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     
 }

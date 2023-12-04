@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.scss';
 import { logout } from '../../store/session';
 import { NavLink, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import logo from "../../Assets/logo.png"
 
 function LoginNavBar () {
 
@@ -12,7 +13,9 @@ function LoginNavBar () {
   return (
     <div className="navbar auth">
       <div className="logo"> 
-      <Link to="/">Logo </Link>
+      <Link to="/">
+        <img src={logo} />
+         </Link>
       
       </div>
 

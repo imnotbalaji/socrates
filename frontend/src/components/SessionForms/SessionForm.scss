@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     
 
     // height and width 
@@ -13,7 +13,7 @@
     min-width: 300px;
 
     // color and borders 
-    border: 1px solid red;
+    // border: 1px solid red;
     border-radius: 5px;
     // background-color: #DBC1AD;
     box-shadow: 5px 5px 5px 5px grey;
@@ -22,6 +22,8 @@
     // padding-bottom: 20px;
     
     margin-top: 20px;
+    // padding-top: 20px;
+    padding-bottom: 15px;
 
     * {
         width: 80%;

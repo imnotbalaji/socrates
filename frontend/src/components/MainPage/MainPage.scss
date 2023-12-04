@@ -21,15 +21,23 @@
     // background-color: #D8C3A5;
     // Height - width
     // border: 1px solid red;how
-    background-image: url("../../../Assets/vintage_style.webp") ;
+    background-image: url("../../Assets/vintage_style.webp") ;
     opacity: 0.5;
-    clip-path: circle(92.8% at 0 95%);
-    width: 55vw;
+    clip-path: circle(92.8% at 0 100%);
+    width: 60vw;
     height: 89vh;
-    * {
+    position: relative;
+    .main-image {
+        
+    }
+    .main-text {
+        position: absolute;
         opacity: 1;
+        top: 40%;
+        left: 30%;
         // border: 1px solid red;
-        margin-left: 50px;
+        color:black;
+        // margin-left: 250px;
     }
 
     // margin-top: 20px;

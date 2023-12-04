@@ -27,7 +27,7 @@ const LoginForm = () => {
 
     return (
         <form className="session-form" onSubmit={handleSubmit}>
-        <h2>Log In Form</h2>
+        <h2>Log In</h2>
           <input type="text"
             value={email}
             onChange={update('email')}

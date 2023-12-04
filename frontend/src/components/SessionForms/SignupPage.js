@@ -57,7 +57,7 @@ function SignupPage() {
     <LoginNavBar/>
     <form className="session-form" onSubmit={handleSubmit}>
       
-      
+      <h1>Sign Up</h1>
   
         <input type="text"
           value={email}

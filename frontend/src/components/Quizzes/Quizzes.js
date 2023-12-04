@@ -33,7 +33,8 @@ const Quizzes = () => {
                 <Link to ="/createQuiz">Create a new Quiz</Link>
             </div>
             {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
-            { loading ? "Loading" : ""}
+            { loading ? 
+            <div className = "loading-bar"> Loading</div> : ""}
            
         </div>
         </>
