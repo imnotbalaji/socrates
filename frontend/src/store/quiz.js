@@ -105,7 +105,7 @@ const quizzesReducer = (state = {}, action) => {
         case RECEIVE_QUIZ:
             return { ...nextState, ...action.quiz.quizzes }
         case REMOVE_QUIZ:
-            delete nextState.quizzes[action.quizId]
+            delete nextState[action.quizId]
             return nextState
         default:
             return state;
