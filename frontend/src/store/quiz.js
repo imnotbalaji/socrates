@@ -1,10 +1,8 @@
 import jwtFetch from './jwt';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
-const history={}
 const RECEIVE_QUIZZES = 'quizzes/RECEIVE_QUIZZES';
 const RECEIVE_QUIZ = 'quizzes/RECEIVE_QUIZ';
-const LOADING_QUIZ = 'quizzes/LOADING_QUIZ';
+const REMOVE_QUIZ = 'quizzes/REMOVE_QUIZ';
 
 export const receiveQuizzes = quizzes => {
     return {
@@ -21,6 +19,12 @@ export const receiveQuiz = quiz => {
     
 }
 
+export const removeQuiz = quizId => {
+    return {
+        type: REMOVE_QUIZ,
+        quizId
+    }
+}
 
 // useSelectors
 export const getQuizzes = state => {
@@ -81,14 +85,28 @@ export const updateQuiz = (quizId, response) => async dispatch => {
     }
 }
 
+export const deleteQuiz = quizId => async dispatch => {
+    const res = await jwtFetch(`/api/quizzes/${quizId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        dispatch(removeQuiz(quizId));
+    }
+}
+
+// Reducer
+
 const quizzesReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_QUIZZES:
             return { ...action.quizzes.quizzes };
         case RECEIVE_QUIZ:
-
             return { ...nextState, ...action.quiz.quizzes }
+        case REMOVE_QUIZ:
+            delete nextState[action.quizId]
+            return nextState
         default:
             return state;
     }
