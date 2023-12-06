@@ -11,9 +11,9 @@ const QuizItem = ({quiz}) => {
     return (
         <div className = "quiz-card">
             
-            <img src ={quiz?.coverURL}/> 
+            <img src ={quiz.coverURL}/> 
             <div className="quiz-title">
-                <Link to={`/quizzes/${quiz?._id}`}>{quiz?.title.slice(0,-5)} </Link>
+                <Link to={`/quizzes/${quiz._id}`}>{quiz.title.slice(0,-5)} </Link>
                 <button onClick={handleDelete}> Delete Quiz</button>
             </div>  
         </div>
