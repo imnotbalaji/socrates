@@ -85,7 +85,7 @@ const quizzesReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_QUIZZES:
-            return { ...nextState, ...action.quizzes.quizzes };
+            return { ...action.quizzes.quizzes };
         case RECEIVE_QUIZ:
 
             return { ...nextState, ...action.quiz.quizzes }
