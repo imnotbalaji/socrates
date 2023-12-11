@@ -14,6 +14,7 @@ import Results from './components/Results/Results.js';
 import Profile from './components/Profile/Profile.js';
 
 import { getCurrentUser } from './store/session';
+import AboutPage from './components/About/about.js';
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <AuthRoute exact path="/login" component={LoginPage} />
         <AuthRoute exact path="/signup" component={SignupPage} />
 
+        <ProtectedRoute exact path="/aboutus" component={AboutPage} />
         <ProtectedRoute exact path="/quizzes/:quizId" component={QuizShow} />
         <ProtectedRoute exact path="/quizzes" component={Quizzes} />
         <ProtectedRoute exact path="/createQuiz" component={CreateQuizForm} />

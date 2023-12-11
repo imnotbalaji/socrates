@@ -22,6 +22,7 @@ function NavBar () {
           <div className = "profile-links">
           <Link className="link" to={'/profile'}>Profile</Link>
           <Link className="link" onClick={logoutUser}>Logout</Link>
+          <Link className="link" to={'/aboutus'}>About Us</Link>
           </div>
         </div>
       );
