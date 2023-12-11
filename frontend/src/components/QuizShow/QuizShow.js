@@ -63,11 +63,9 @@ const QuizShow = () => {
  
 
     const handleAnswerChange = (questionIndex, value) => {
-      console.log("Test",questionIndex,value);
         switch (questionIndex) {
           case 0:
             setQuestion0(prev_value => (prev_value === value)? "" : value);
-            // console.log(question0)
             break;
           case 1:
             setQuestion1(prev_value => (prev_value === value)? "" : value );
@@ -105,7 +103,6 @@ const QuizShow = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const response={updates: [question0,question1,question2,question3,question4,question5,question6,question7,question8,question9]}
-        console.log(response)
         await dispatch(updateQuiz(quizId, response))
         .then(history.push(`/results/${quizId}`))
     }
