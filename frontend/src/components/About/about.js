@@ -40,6 +40,19 @@ const AboutPage = () => {
                         <a href="https://www.linkedin.com/in/vincent-shan-9121366b/" target="_blank"><img src={LinkedIn} alt="linkedin"></img></a>
                     </div>
                 </div>
+                <div className="teamMemberContainer">
+                    <div className="name">
+                        <h4>Balaji V</h4>
+                        <h5>Team Lead</h5>
+                    </div>
+                    <div className="headshotContainer">
+                        <img src={BVHeadshot} className="headshot" alt="headshot"></img>
+                    </div>
+                    <div className="links">
+                        <a href="https://github.com/imnobalaji" target="_blank"><img src={GitHub} classname="link" alt="github"></img></a>
+                        <a href="https://www.linkedin.com/in/omar-hammad-93810413b/" target="_blank"><img src={LinkedIn} alt="linkedin"></img></a>
+                    </div>
+                </div>
             </div>
         </>
     )
