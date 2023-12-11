@@ -28,11 +28,12 @@
 
 .name h4 {
     margin: 0%;
-    justify-content: center;
+    text-align: center;
 }
 
 .name h5 {
     margin: 0%;
+    text-align: center;
 }
 
 .links img {
