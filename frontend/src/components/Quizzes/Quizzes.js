@@ -29,9 +29,11 @@ const Quizzes = () => {
         
         <NavBar />
         <div className="quiz-index">
-             <div className ="createQuiz-link">
-                <Link to ="/createQuiz">Create a new Quiz</Link>
-            </div>
+            <Link to="/createQuiz">
+                <div className ="createQuiz-link">
+                    Create a new Quiz
+                </div>
+            </Link>
             {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
             { loading ? 
             <div className = "loading-bar"> Loading</div> : ""}

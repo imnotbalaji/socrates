@@ -37,12 +37,13 @@ const LoginForm = () => {
             onChange={update('email')}
             placeholder="Email"
           />
+          {errors && <div className="errors">{errors?.email}</div>}
           <input type="password"
             value={password}
             onChange={update('password')}
             placeholder="Password"
           />
-          {errors && <div className="errors">{errors?.email}</div> }
+          {errors && <div className="errors">{errors?.password}</div>}
           
         <input
           className="submitButton"
