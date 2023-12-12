@@ -33,22 +33,11 @@
 
 ![Alt text](frontend/src/Assets/openairequest.png)
 
-<p></p>
+<p>Following the creation of the quiz, the user can take the quiz and their responses are updated in the quiz instance.  Their responses are compared to the correct answers which were provided by Open AI and in the user's profile, they can see their analytics which tracks unanswered questions, correct answers and incorrect answers.  Below is a snapshot of the analytics dashboard.</p>
 
-![Alt text](frontend/src/assets/images/posts_index.png)
+![Alt text](frontend/src/Assets/snap%20-%20user%20dashboard.png)
 
-<h3>Friending</h3>
+<p>For the final CRUD feature, users can delete a quiz they created.  Below is a photo of the "Delete Quiz" button on the quiz directory.</p>
 
-<p></p>
-
-![Alt text](frontend/src/assets/images/friends_create.png)
-
-<p></p>
-
-![Alt text](frontend/src/assets/images/friends_delete.png)
-
-<p></p>
-
-![Alt text](frontend/src/assets/images/friends_assoc.png)
-
+![Alt text](frontend/src/Assets/quiz%20index%20-%20delete.png)
 
