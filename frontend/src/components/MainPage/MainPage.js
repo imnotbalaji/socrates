@@ -12,8 +12,12 @@ function MainPage() {
         {/* <div className = "main-image">
         </div> */}
         <div className = "main-text"> 
-          <p>Welcome to Socrates!  A learning aid that allows you to create a quiz on any topic, at either a beginner, intermediate or advanced level.</p>  
-          <p>Login or signup to take your quiz!</p>
+          <div className='line'>
+            <p>Welcome to Socrates!  A learning aid that allows you to create a quiz on any topic, at either a beginner, intermediate or advanced level.</p>  
+          </div>
+          <div className='line'>
+            <p>Login or signup to take your quiz!</p>
+          </div>
         </div>
       </div>
       {/* <LoginForm/> */}

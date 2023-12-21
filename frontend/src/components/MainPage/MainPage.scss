@@ -63,7 +63,8 @@
 }
 
 .main-text {
-    position: absolute;
+    position: flex;
+    justify-content: center;
     opacity: 1;
     // top: 22%;
     // left: 30%;
@@ -73,4 +74,13 @@
     background-color: white;
     border-radius: 5px;
     padding: 2%;
+}
+
+.main-text p {
+    margin: 0;
+    width: fit-content;
+}
+
+.line {
+    width: fit-content;
 }
