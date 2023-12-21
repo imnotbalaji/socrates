@@ -1,9 +1,13 @@
 .main-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: static;
-    background-image: url("../../Assets/vintage_style.webp");
+    background-image: url("../../Assets/vintage_style(2).png");
+    background-size: cover;
     opacity: 0.5;
     width: 100vw;
+    height: 100vh;
     .session-form {
         margin-top: 125px;
         opacity: 1;
@@ -17,9 +21,10 @@
     left: (-10%);
     // Display properties 
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-    text-align: left;
+    // flex-direction: column;
+    // justify-content: left;
+    // text-align: left;
+    justify-content: center;
     // align-items: center;
     // background-color: #D8C3A5;
     // Height - width
@@ -36,8 +41,8 @@
     .main-text {
         position: absolute;
         opacity: 1;
-        top: 22%;
-        left: 30%;
+        // top: 22%;
+        // left: 30%;
         // border: 1px solid red;
         color:black;
         // margin-left: 250px;
@@ -55,4 +60,17 @@
     font-size: 15px;
     display: flex;
     justify-content: center;
+}
+
+.main-text {
+    position: absolute;
+    opacity: 1;
+    // top: 22%;
+    // left: 30%;
+    // border: 1px solid red;
+    color: black;
+    // margin-left: 250px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2%;
 }

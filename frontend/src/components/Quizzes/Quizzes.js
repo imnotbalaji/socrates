@@ -28,10 +28,10 @@ const Quizzes = () => {
         <>
         
         <NavBar />
-            <h1>Your Quizzes</h1>
             <Link to="/createQuiz">
                 <button className="newQuiz-button">Create a New Quiz</button>
             </Link>
+            <h1>Your Quizzes</h1>
         <div className="quiz-index">
             {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
             { loading ? 
