@@ -1,7 +1,7 @@
 .quiz-form {
-    height: 85vh;
+    height: fit-content;
     width: 60%;
-    overflow: scroll;
+    // overflow: scroll;
     // border: 1px solid red;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 .quiz-cover-image {
     margin: 10px;
     width: 90%;
-    height : 40%;
+    height : 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +48,7 @@
     // box-shadow: 2px 2px 2px 2px cyan;
     border-radius: 5px;
     width: 90%;
-    height: 300px;
+    height: auto;
     margin: 5px;
     padding: 10px;
     

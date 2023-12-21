@@ -67,6 +67,7 @@ const Profile = () => {
     return (
         <>
         <NavBar/>
+        <h1>Your Stats</h1>
         <div className="analyticsContainer">
             <div className="analyticsContainerTop">
                 <div className="difficulty">

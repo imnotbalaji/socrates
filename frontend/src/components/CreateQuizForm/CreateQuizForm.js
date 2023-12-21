@@ -36,9 +36,9 @@ const CreateQuizForm = () => {
                         <input type="text" placeholder="What's on your mind" value={topic} onChange={(e)=>setTopic(e.target.value)}></input>
                 
                     <select id="dropdown" onChange={(e)=>setDifficulty(e.target.value)}name="difficulty">
-                        <option value="beginner" >Difficult Level: Beginner</option>
-                        <option value="intermediate" >Difficult Level: intermediate</option>
-                        <option value="advanced" >Difficult Level: Advanced</option>
+                        <option value="beginner" >Difficulty Level: Beginner</option>
+                        <option value="intermediate" >Difficulty Level: Intermediate</option>
+                        <option value="advanced" >Difficulty Level: Advanced</option>
                     </select>
                 
 

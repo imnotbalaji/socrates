@@ -11,13 +11,15 @@ const QuizItem = ({quiz}) => {
     return (
         <div className = "quiz-card">
             
-            <img src ={quiz.coverURL}/> 
             <Link to={`/quizzes/${quiz._id}`}>
+                <img src ={quiz.coverURL}/> 
                 <div className="quiz-title">
                     {quiz.title.slice(0,-5)} 
-                    <button onClick={handleDelete}> Delete Quiz</button>
                 </div>
             </Link>  
+            <div className='deleteButton'>
+                <button onClick={handleDelete}>X</button>
+            </div>
         </div>
     )
 }

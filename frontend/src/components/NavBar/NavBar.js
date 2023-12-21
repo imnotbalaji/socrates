@@ -16,13 +16,22 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
+          <div>
           {/* <Link className="link" to={'/createQuiz'}>Create Quiz</Link> */}
-          
-          <Link className="link" to={'/quizzes'}>Quiz Index</Link>
+            <Link className="link" to={'/quizzes'}>Quiz Index</Link>
+            <Link className="link" to={'/profile'}>Profile</Link>
+          </div>
+          <div className='titleHeader'>
+            <div className='header'>
+              <h2>Socrates</h2>
+            </div>
+            <div>
+              <h4>The Unexamined Life is Not Worth Living</h4>
+            </div>
+          </div>
           <div className = "profile-links">
-          <Link className="link" to={'/profile'}>Profile</Link>
-          <Link className="link" onClick={logoutUser}>Logout</Link>
-          <Link className="link" to={'/aboutus'}>About Us</Link>
+            <Link className="link" onClick={logoutUser}>Logout</Link>
+            <Link className="link" to={'/aboutus'}>About Us</Link>
           </div>
         </div>
       );

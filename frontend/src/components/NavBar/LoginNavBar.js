@@ -19,10 +19,24 @@ function LoginNavBar () {
       
       </div>
 
-    {location.pathname.includes("signup") 
-     ? <NavLink className="link" to={'/Login'}>Login</NavLink>
-     : <NavLink className="link" to={'/signup'}>Signup</NavLink>}
+
+    <div className='titleHeader'>
+      <div className='header'>
+        <h2>Socrates</h2>
+      </div>
+      <div>
+        <h4>The Unexamined Life is Not Worth Living</h4>
+      </div>
+    </div>
+
+    {/* {location.pathname.includes("signup") 
+     ? <NavLink className="link" to={'/login'}>Login</NavLink>
+     : <NavLink className="link" to={'/signup'}>Signup</NavLink>} */}
     
+    <div>
+      <NavLink className="link" to={'/login'}>Login</NavLink>
+      <NavLink className="link" to={'/signup'}>Signup</NavLink>
+    </div>
     
   </div>
 
