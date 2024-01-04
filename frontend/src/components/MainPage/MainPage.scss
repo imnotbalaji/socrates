@@ -84,3 +84,31 @@
 .line {
     width: fit-content;
 }
+
+.link {
+    height: 20px;
+}
+
+.teamListing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamMember {
+    display: flex;
+}
+
+.teamLinks {
+    display: flex;
+}
+
+.teamName p {
+    margin: 0;
+    margin-top: 18px;
+}
+
+.teamLinks a {
+    margin: 0;
+}
