@@ -35,7 +35,7 @@ const Quizzes = () => {
         <div className="quiz-index">
             {quizList?.map(quiz => <QuizItem key={quiz._id} quiz={quiz} questions={questions}/>)}
             { loading ? 
-            <div className = "loading-bar"> Loading</div> : ""}
+            <div className = "loading-bar"> Loading... this may take a minute</div> : ""}
            
         </div>
         </>
