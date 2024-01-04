@@ -12,6 +12,18 @@
 
 <p>A user's analytics page is a dashboard where the number of correct, incorrect and unanswered questions are presented in pie charts for each respective difficulty level, and one pie chart for the user's combined stats.</p>
 
+<h2>Instructions</h2>
+
+<p>Firstly, when you get to the splash page, you can login or signup in the upper right hand corner</p>
+
+<p>Once logged in, you will be taken to the quiz index page. If you are using the Demo Login, there will be a directory of quizzes already generated.  Simply click on the quiz in order to take it.</p>
+
+<p>If you wish to create a new quiz, simply click the "Create a New Quiz" button at the top of the page.  Select your topic and your difficulty level and Socrates will generate a quiz for you to take.</p>
+
+<p>Also on the quiz index page, to the upper left, you can click on "Profile" which will show you your analytics, like how many questions you answered, how many were correct, etc.</p>
+
+<p>Finally, you can logout to the upper right as well as view the "About Us" page which has links for the team's GitHub and LinkedIn.</p>
+
 <h2>Technologies Utilized</h2>
 
 1. React
@@ -39,5 +51,5 @@
 
 <p>For the final CRUD feature, users can delete a quiz they created.  Below is a photo of the "Delete Quiz" button on the quiz directory.</p>
 
-![Alt text](frontend/src/Assets/quiz%20index%20-%20delete.png)
+![Alt text](frontend/src/Assets/delete_quiz_button.png)
 
