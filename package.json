@@ -1,14 +1,14 @@
 {
   "dependencies": {
+    "mongodb": "^6.3.0",
     "recharts": "^2.10.3"
   },
   "name": "socrates",
   "description": "A quiz app with questions on anything!",
   "version": "1.0.0",
-  "engines":{
+  "engines": {
     "node": "18.x"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend-install": "npm install --prefix backend",
